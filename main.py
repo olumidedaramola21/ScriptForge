@@ -60,34 +60,48 @@
 # print(course.get_average_grade())
 
 
-class Pet:
-    def __init__(self, name, age):
+# class Pet:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def show(self):
+#         print(f"I am {self.name} and I am {self.age} years old")
+
+
+# class Cat(Pet):
+#     def __init__(self, name, age, color):
+#         super().__init__(name, age)
+#         self.color = color
+
+#     def speak(self):
+#         print("Meow")
+
+#     def show(self):
+#         print(f"I am {self.name} and I am {self.age} years old, I am {self.color}")
+
+
+# class Dog(Pet):
+#     def speak(self):
+#         print("Bark")
+
+
+# p = Pet("Tim", 19)
+# p.show()
+# c = Cat("Bill", 19, "Brown")
+# c.show()
+# c.speak()
+
+
+class Person:
+    number_of_people = 0
+
+    def __init__(self, name):
         self.name = name
-        self.age = age
-
-    def show(self):
-        print(f"I am {self.name} and I am {self.age} years old")
+        Person.number_of_people += 1
 
 
-class Cat(Pet):
-    def __init__(self, name, age, color):
-        super().__init__(name, age)
-        self.color = color
-
-    def speak(self):
-        print("Meow")
-
-    def show(self):
-        print(f"I am {self.name} and I am {self.age} years old, I am {self.color}")
-
-
-class Dog(Pet):
-    def speak(self):
-        print("Bark")
-
-
-p = Pet("Tim", 19)
-p.show()
-c = Cat("Bill", 19, "Brown")
-c.show()
-c.speak()
+p1 = Person("tim")
+print(p1.number_of_people)
+p2 = Person("Jill")
+print(p1.number_of_people)
