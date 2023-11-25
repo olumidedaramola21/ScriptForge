@@ -1,21 +1,33 @@
-""" 
-A hello world to be sure all my tools work.
-"""
+import math
 
-from dataclasses import dataclass 
+class Shape:
+    def __init__(self, name):
+        self.name = name
 
-@dataclass
-class Greeting:
-    greeting: str
-    auidence: str
+    def perimeter(self):
+        raise NotImplementedError("perimeter")
 
-    def __str__(self) -> str:
-        return f"{self.greeting} {self.auidence}"
-
+    def area(self):
+        raise NotImplementedError("area")
     
-def main() -> None:
-    g = Greeting("Hello", "world")
-    print(g)
+class Square(Shape):
+    def __init__(self, name, side):
+        super().__init__(name)
+        self.side = side
 
-if __name__ == "__main__":
-    main()
+    def perimeter(self):
+        return 4 * self.side
+    
+    def area(self):
+        return self.side ** 2
+    
+class Circle(Shape):
+    def __init__(self, name, radius):
+        super().__init__(name)
+        self.radius = radius
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+    
+    def area(self):
+        return math.pi * self.radius ** 2
