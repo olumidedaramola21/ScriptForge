@@ -31,3 +31,11 @@ class Circle(Shape):
     
     def area(self):
         return math.pi * self.radius ** 2
+    
+examples = [Square("sq", 3), Circle("ci", 2)]
+for thing in examples:
+    n = thing.name
+    p = thing.perimeter()
+    a = thing.area()
+    print(f"{n} has perimeter {p:.2f} and area {a:.2f}")
+
