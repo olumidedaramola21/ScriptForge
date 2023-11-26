@@ -40,6 +40,17 @@ class Circle(Shape):
     
 
  ######### Dictionary Representation of Classes #########
+
+def shape_density(thing, weight):
+    return weight / call(thing, "area")
+    
+
+Shape = {
+    "density": shape_density,
+    "_classname": "Shape",
+    "parent": None
+}
+
 # Circle
 
 def circle_perimeter(thing):
@@ -56,6 +67,7 @@ Circle = {
     "perimeter": circle_perimeter,
     "area": circle_area,
     "larger": circle_larger, 
+    "density": shape_density,
     "_classname": "Circle",
     "_parent": Shape
 }
@@ -85,6 +97,7 @@ Square = {
     "perimeter": square_perimeter,
     "area": square_area,
     "larger": square_larger,
+    "density": shape_density,
     "_classname": "Square",
     "_parent": Shape
 }
@@ -100,15 +113,9 @@ def square_new(name, side):
 # Method Calling
 
 def call(thing, method_name, *args):
-    method = find(thing["_class"], method_name)
-    return method(thing, *args)
+    return  thing["_class"][method_name](thing, *args)
+   
 
-def find(cls, method_name):
-    while cls is not None:
-        if method_name in cls:
-            return cls[method_name]
-        cls = cls["_parent"]
-    raise NotImplementedError("method_name")
 
 
 examples = [square_new("sq", 4), circle_new("ci", 2)]
@@ -116,19 +123,11 @@ for ex in examples:
     n = ex["name"]
     p = call(ex, "perimeter")
     a = call(ex,"area")
+    d = call(ex, "density", 5)
     c = ex["_class"]["_classname"]
     result = call(ex, "larger", 10)
+    print(f"{n}: {d:.2f}")
     # print(f"is {ex['name']} larger? {result}")
     # print(f"{n} is a {c}: {p:.2f} {a:.2f}")
 
 
-
-def shape_density(thing, weight):
-    return weight / call(thing, "area")
-    
-
-Shape = {
-    "density": shape_density,
-    "_classname": "Shape",
-    "parent": None
-}
