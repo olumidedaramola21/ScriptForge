@@ -1,6 +1,6 @@
 import sys
 import glob
-import os
+
 
 def same_bytes(left_name, right_name):
     left_bytes = open(left_name, "rb").read()
