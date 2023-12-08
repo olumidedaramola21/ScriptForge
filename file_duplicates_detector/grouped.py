@@ -1,5 +1,9 @@
 import sys
 import glob
+import os
+
+
+print("Current Working Directory:", os.getcwd())
 
 
 def naive_hash(data):
@@ -44,16 +48,17 @@ if __name__ == "__main__":
 
     
     pattern = sys.argv[1]
-    filenames = glob.glob(pattern)
-    groups = find_groups(filenames)
+    print(pattern)
+    # filenames = glob.glob(pattern)
+    # groups = find_groups(filenames)
     
-    if not filenames:
-        print(f"No files found matching the pattern: {pattern}")
-        # sys.exit(1)
+    # if not filenames:
+    #     print(f"No files found matching the pattern: {pattern}")
+    #     # sys.exit(1)
 
-    for filenames in groups.values():
-        duplicates = find_duplicates_within_groups(list(filenames))
-        for duplicate in duplicates:
-            print(duplicate)
+    # for filenames in groups.values():
+    #     duplicates = find_duplicates_within_groups(list(filenames))
+    #     for duplicate in duplicates:
+    #         print(duplicate)
 
    
