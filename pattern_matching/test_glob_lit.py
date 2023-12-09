@@ -15,3 +15,7 @@ def test_literal_superstring_no_match():
 def test_litral_followed_by_literal_match():
     # /a/+/b/ matches "ab"
     assert Lit("a", Lit("b")).match("ab")
+
+def test_literal_followed_by_literal_no_match():
+    # /a/+/b/ doesn't match "ac"
+    assert not Lit("a", Lit("b")).match("ac")
