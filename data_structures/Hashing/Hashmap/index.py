@@ -1,19 +1,20 @@
-# Implementation of a basic HashMap
+"""Implementation of a basic HashMap """ 
 
 class Node:
+    """ Node"""
     def __init__(self, key, value):
         self.key = key
         self.value = value
         self.next = next
 
 class MyHashMap:
+    """MyHashMap"""
     def __init__(self):
         self.size = 1000
         self.table = [None] * self.size
 
-    
     def _hash(self, key):
-        return hash(key) % self.size
+        return hash(key) % self.size 
     
     def put(self, key, value):
         index = self._hash(key)
