@@ -1,7 +1,7 @@
 """Finding the sum of all continous subarrays of size k."""
 
 # Bruteforce approach
-from curses import window
+
 
 
 def find_averages_of_subarray_k(k, arr):

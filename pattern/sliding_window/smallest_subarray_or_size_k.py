@@ -15,3 +15,21 @@ def smallest_subarray_with_given_sum(s, arr):
     if min_length == math.inf:
         return 0
     return min_length
+
+
+# def smallest_subarray_with_given_sum(s, arr):
+#     window_start = 0
+#     window_sum = 0
+#     window_length = math.inf
+
+#     for window_end in range(len(arr)):
+#         window_sum += window_end
+
+#         while window_sum >= s:
+#             window_length = min(window_length, window_end - window_start + 1)
+#             window_sum -= window_start
+#             window_start += 1
+#         if window_length == math.inf:
+#             return 0
+#     return window_length
+
